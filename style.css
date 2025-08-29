@@ -1,0 +1,140 @@
+* { box-sizing: border-box; }
+:root{
+  --bg:#0d0d0d;
+  --accent:#00f7ff;
+  --accent-2:#ff0080;
+  --glass: rgba(255,255,255,0.08);
+  --text:#f1f1f1;
+  --muted:#9ea3a8;
+}
+html,body { height:100%; }
+body{
+  margin:0;
+  font-family:'Orbitron', sans-serif;
+  color:var(--text);
+  background: var(--bg) url('https://www.transparenttextures.com/patterns/stardust.png');
+  background-size: 600px 600px;
+  overflow-x:hidden;
+}
+
+/* Confetti Canvas */
+#confetti{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:2;
+}
+
+/* Layout */
+.container{
+  width:min(960px, 92vw);
+  margin: 5rem auto 3rem;
+}
+.header{
+  text-align:center;
+  margin-bottom:1rem;
+}
+.header h1{
+  margin:0 0 .3rem;
+  font-weight:600;
+  letter-spacing:1px;
+  color: var(--accent);
+}
+.subtitle{ color:var(--muted); margin-top:0; }
+
+.glass{
+  background:var(--glass);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:16px;
+  box-shadow: 0 0 20px rgba(0,247,255,0.15);
+}
+
+.controls{
+  padding:1rem 1.25rem;
+}
+.controls .row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem;
+  align-items:center;
+  justify-content:space-between;
+  margin:.25rem 0;
+}
+.controls select{
+  background:rgba(0,0,0,.3);
+  color:var(--text);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:8px;
+  padding:.6rem .8rem;
+}
+
+.stat strong{ color:var(--accent); }
+
+.game{
+  margin-top:1.25rem;
+  padding:1.25rem;
+}
+.message{
+  text-align:center;
+  font-size:1.1rem;
+  margin-bottom:.75rem;
+  color: var(--accent-2);
+}
+.guess-form{
+  display:flex;
+  gap:.6rem;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin:.5rem auto 1rem;
+}
+.guess-input{
+  width:220px;
+  padding:.8rem 1rem;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(0,0,0,.4);
+  color:var(--text);
+  font-size:1rem;
+}
+.btn{
+  padding:.75rem 1.1rem;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+  transition: transform .12s ease, box-shadow .25s ease;
+  color:var(--text);
+  border:1px solid rgba(255,255,255,.3);
+}
+.btn.primary{
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color:#000;
+  border:none;
+}
+.btn.subtle{ background: rgba(255,255,255,.06); color:var(--accent); }
+.btn:hover{ transform: translateY(-1px); box-shadow:0 0 12px var(--accent-2); }
+
+.progress{
+  height:10px; background:rgba(255,255,255,.12);
+  border-radius:999px; overflow:hidden; margin:.25rem auto 1rem; max-width:560px;
+  border:1px solid rgba(255,255,255,.2);
+}
+.progress-bar{
+  height:100%; width:0;
+  background:linear-gradient(90deg, var(--accent), var(--accent-2));
+  transition: width .35s ease;
+}
+
+.summary{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+  gap: .75rem;
+  margin: .5rem 0 1rem;
+}
+
+.footer{
+  margin-top: 1rem;
+  text-align:center;
+  padding: .9rem 1.1rem;
+  color:var(--muted);
+}
